@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang= "en" dir="1tr">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0">
+	<title> Explore Nature </title>
+	<link rel="stylesheet" href="./CSS/exploration_general.css">
+    
+	
+</head>
+<body class="light--mode">
+	
+	<header>
+      <img class="logo" src="./img/logo.png" alt="">
+	    	<div class="menu-btn"><img id="menu_img" src="./img/menu.png"></div>
+	        <div class="navigation">
+				<div class="navigation-items">
+					<a href="home_travel.html">Home</a>
+					<a href="exploration_travel.html"> Explore </a>
+					 <a class="dark-button"> <button class="dark-mode"> Toggle Dark Mode</button></a>
+					
+			    </div>
+				</div>
+	</header>
+	
+	<section class="home">
+	
+	<div class="top-banner">
+	 <video class= "video-slide" src="./img/Nature_banner.mp4" autoplay muted loop> </video>
+	 <h1> Top Nature Destinations</h1>
+	</div>
+	
+	<div class="main_wrapper">
+	<div class="text-block">
+	<div class="body--text-block-top">
+	<div class="descriptions-top">
+	<h2> 1. Iceland</h2>
+	<p>Why Visit:<br> Iceland, "the land of fire and ice," offers a unique blend of natural wonders, from glaciers and volcanoes to waterfalls and black sand beaches, 
+	making it a must-visit destination for nature lovers and adventure seekers. Known for its otherworldly landscapes, Iceland offers volcanoes, glaciers,
+	 geysers, hot springs, and breathtaking waterfalls.<br>
+     Must-See:<br> Blue Lagoon, Thingvellir National Park, Gullfoss Waterfall, and the Vatnajökull Glacier.</p>
+     </div>
+    <img src="./img/iceland_nature.jpg">
+	</div>
+	<div class="body--text-block">
+	<img src="./img/borneo_nature.webp">
+	<div class="descriptions">
+	<h2>2. Borneo (Malaysia & Indonesia)</h2>
+	<p>Why Visit:<br> Borneo, the world's third-largest island, is a must-visit destination for nature lovers and adventure seekers alike, 
+	offering diverse wildlife, stunning landscapes, and opportunities to experience unique cultures. Explore rainforests, incredible wildlife, 
+	and unique ecosystems.<br>
+    Must-See:<br> Mount Kinabalu, Sepilok Orangutan Rehabilitation Centre, and Bako National Park.</p>
+    </div>
+	</div>
+	
+	<div class="body--text-block">
+	<div class="descriptions">
+	<h2>3. South Africa</h2>
+	<p>Why Visit: <br> South Africa offers a diverse range of experiences, from wildlife safaris and stunning landscapes to vibrant culture
+	 and world-class food and wine, making it a compelling destination for a memorable trip. For a mix of safari adventures and coastal landscapes.<br>
+     Must-See:<br> Kruger National Park for wildlife safaris, Table Mountain, Boulders Beach (penguins), and Cape Point.</p>
+     </div>
+	<img src="./img/africa_nature.jpg">
+	</div>
+	
+	<div class="body--text-block-last">
+	<img src="./img/madagascar_nature.jpg">
+	<div class="descriptions-last">
+	<h2>4. Madagascar</h2>
+	<p>Why Visit: <br> Southern Madagascar is a must-visit for its unique landscapes, wildlife, and cultural experiences, including the Isalo National Park, 
+	spiny forests, and the chance to explore the Vezo fishermen's village of Anakao. 
+   The island’s unique flora and fauna, including lemurs, make it a must-see for nature enthusiasts.<br>
+Must-See: <br> Avenue of the Baobabs, Ranomafana National Park, and Isalo National Park.</p>
+    </div>
+	</div>
+	</div>
+	
+	</div>
+	<script>
+	
+	const menuBtn= document.querySelector(".menu-btn");
+	  const navigation= document.querySelector(".navigation");
+      const myImg= document.getElementById("menu_img");
+      const themeToggle= document.querySelector(".dark-button");
+      const body= document.body;
+      
+      themeToggle.addEventListener('click', () => {
+      body.classList.toggle('dark-mode');
+      navigation.classList.toggle('dark-mode');
+      header.classList.toggle('dark-mode');
+      });
+      
+      
+	 
+	     menuBtn.addEventListener("click",()=>{
+		 menuBtn.classList.toggle("active");
+		 navigation.classList.toggle("active");
+			  });
+         
+         
+         let isFirstImage= true;
+         
+         menuBtn.addEventListener("click",function(){
+         
+         if (isFirstImage){
+          myImg.src="./img/close_menu.png";
+         } else {
+          myImg.src="./img/menu.png";
+         }
+         
+          isFirstImage = !isFirstImage;
+          });
+	
+		
+		//JS for Slidebtns// 
+	  const btns= document.querySelectorAll(".nav-btn");
+	  const slides= document.querySelectorAll(".video-slide");
+	  const contents=document.querySelectorAll(".content");
+		
+		var slideNav= function(manual){
+			
+			btns.forEach((btn)=>{
+				btn.classList.remove("active");
+			});
+			
+			slides.forEach((slide)=>{
+				slide.classList.remove("active");
+			});
+			
+			contents.forEach((content)=>{
+				content.classList.remove("active");
+			});
+			
+			
+			
+		   btns[manual].classList.add("active");
+			 slides[manual].classList.add("active");
+			contents[manual].classList.add("active");
+		};
+		
+		
+		
+		btns.forEach((btn,i)=>{
+			btn.addEventListener("click",()=>{
+			  slideNav(i);
+			});
+		});
+		
+	</script>
+	</section>
+	</html>

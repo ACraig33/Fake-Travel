@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang= "en" dir="1tr">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0">
+	<title> Explore Sight-Seeing </title>
+	<link rel="stylesheet" href="./CSS/exploration_general.css">
+    
+	
+</head>
+<body class="light--mode">
+	
+	<header>
+      <img class="logo" src="./img/logo.png" alt="">
+	    	<div class="menu-btn"><img id="menu_img" src="./img/menu.png"></div>
+	        <div class="navigation">
+				<div class="navigation-items">
+					<a href="home_travel.html">Home</a>
+					<a href="exploration_travel.html"> Explore </a>
+					 <a class="dark-button"> <button class="dark-mode"> Toggle Dark Mode</button></a>
+					
+			    </div>
+				</div>
+	</header>
+	
+	<section class="home">
+	
+	<div class="top-banner">
+	 <video class= "video-slide" src="./img/Sightseeing_banner.mp4" autoplay muted loop> </video>
+	 <h1> Top Sightseeing Destinations</h1>
+	</div>
+	
+	<div class="main_wrapper">
+	<div class="text-block">
+	<div class="body--text-block-top">
+	<div class="descriptions-top">
+	<h2> 1.Eiffel Tower - Paris, France</h2>
+	<p>Why Visit:<br>The Eiffel Tower is a must-visit for its iconic status as a symbol of Paris and France, 
+	offering breathtaking panoramic views, a chance to experience a piece of history, and a unique, memorable experience.
+     </div>
+    <img src="./img/eifel_tower.jpeg">
+	</div>
+	<div class="body--text-block">
+	<img src="./img/Greenland.jpg">
+	<div class="descriptions">
+	<h2>2.Santorini - Greece</h2>
+	<p>Why Visit:<br> Greenland offers a unique and awe-inspiring travel experience, boasting stunning natural landscapes, abundant wildlife, and a chance to witness the magic of the Arctic, making it a destination unlike any other. 
+ With improved accessibility, Greenland is attracting adventurers seeking stunning natural landscapes and unique cultural 
+	experiences.<br>
+    Must-See:<br> Unparalleled Natural Beauty, Abundant Arctic Wildlife, and Unique Cultural Experiences.</p>
+    </div>
+	</div>
+	
+	<div class="body--text-block">
+	<div class="descriptions">
+	<h2>3. Sydney Opera House - Sydney, Australia</h2>
+	<p>Why Visit: <br> Bali, often called the "Island of Gods," offers a unique blend of natural beauty, rich culture, and spiritual experiences, making it a compelling destination for travelers seeking adventure, relaxation, and cultural immersion. 
+Bali continues to be a favorite among travelers, offering lush landscapes, vibrant culture, and spiritual experiences.<br>
+Must-See:<br> Stunning Beaches, Volcanic Landscapes, Majestic Waterfalls, Surfing Paradise</p>
+     </div>
+	<img src="./img/Bali.jpg">
+	</div>
+	
+	<div class="body--text-block-last">
+	<img src="./img/Seoul.jpg">
+	<div class="descriptions-last">
+	<h2>4. Kyoto Temples - Kyoto, Japan </h2>
+	<p>Why Visit:<br> Ranked as a top solo travel destination, Seoul combines modern attractions with rich history and culture.<br>
+Must-See: <br> Palaces and Temples, Bukchon Hanok Village,N Seoul Tower</p>
+    </div>
+	</div>
+	</div>
+	
+	</div>
+	<script>
+	
+	const menuBtn= document.querySelector(".menu-btn");
+	  const navigation= document.querySelector(".navigation");
+      const myImg= document.getElementById("menu_img");
+      const themeToggle= document.querySelector(".dark-button");
+      const body= document.body;
+      
+      themeToggle.addEventListener('click', () => {
+      body.classList.toggle('dark-mode');
+      navigation.classList.toggle('dark-mode');
+      header.classList.toggle('dark-mode');
+      });
+      
+      
+	 
+	     menuBtn.addEventListener("click",()=>{
+		 menuBtn.classList.toggle("active");
+		 navigation.classList.toggle("active");
+			  });
+         
+         
+         let isFirstImage= true;
+         
+         menuBtn.addEventListener("click",function(){
+         
+         if (isFirstImage){
+          myImg.src="./img/close_menu.png";
+         } else {
+          myImg.src="./img/menu.png";
+         }
+         
+          isFirstImage = !isFirstImage;
+          });
+	
+		
+		//JS for Slidebtns// 
+	  const btns= document.querySelectorAll(".nav-btn");
+	  const slides= document.querySelectorAll(".video-slide");
+	  const contents=document.querySelectorAll(".content");
+		
+		var slideNav= function(manual){
+			
+			btns.forEach((btn)=>{
+				btn.classList.remove("active");
+			});
+			
+			slides.forEach((slide)=>{
+				slide.classList.remove("active");
+			});
+			
+			contents.forEach((content)=>{
+				content.classList.remove("active");
+			});
+			
+			
+			
+		   btns[manual].classList.add("active");
+			 slides[manual].classList.add("active");
+			contents[manual].classList.add("active");
+		};
+		
+		
+		
+		btns.forEach((btn,i)=>{
+			btn.addEventListener("click",()=>{
+			  slideNav(i);
+			});
+		});
+		
+	</script>
+	</section>
+	</html>

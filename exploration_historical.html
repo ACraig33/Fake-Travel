@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang= "en" dir="1tr">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0">
+	<title> Explore History </title>
+	<link rel="stylesheet" href="./CSS/exploration_general.css">
+    
+	
+</head>
+<body class="light--mode">
+	
+	<header>
+      <img class="logo" src="./img/logo.png" alt="">
+	    	<div class="menu-btn"><img id="menu_img" src="./img/menu.png"></div>
+	        <div class="navigation">
+				<div class="navigation-items">
+					<a href="home_travel.html">Home</a>
+					<a href="exploration_travel.html"> Explore </a>
+					 <a class="dark-button"> <button class="dark-mode"> Toggle Dark Mode</button></a>
+					
+			    </div>
+				</div>
+	</header>
+	
+	<section class="home">
+	
+	<div class="top-banner">
+	 <video class= "video-slide" src="./img/Historical_banner.mp4" autoplay muted loop> </video>
+	 <h1> Top Historical Destinations</h1>
+	</div>
+	
+	<div class="main_wrapper">
+	<div class="text-block">
+	<div class="body--text-block-top">
+	<div class="descriptions-top">
+	<h2> 1. Rome, Italy</h2>
+	<p>Why Visit:<br>Rome is a truly special place. With its rich history and gorgeous architecture, breathtaking churches,
+	 fountains, and piazzas it has something for everyone. Whether you are looking for delicious food, fabulous shopping, or exciting entertainment, 
+	 you will find it all in Rome Why Visit: Rome is a treasure trove of ancient history, with monuments, ruins, and buildings dating back thousands of
+	  years.<br>
+      Must-See: <br> The Colosseum, Roman Forum, Pantheon, Vatican City (St. Peter’s Basilica and the Sistine Chapel), and the ancient city of Ostia Antica.</p>
+     </div>
+    <img src="./img/rome_history.jpeg">
+	</div>
+	<div class="body--text-block">
+	<img src="./img/athens_history.jpeg">
+	<div class="descriptions">
+	<h2>2. Athens, Greece</h2>
+	<p>Why Visit:<br> The perfect Mediterranean climate with the legendary greek sunlight, the unique combination of glorious history with modern,
+	 urban innovation, the coexistence of great culture with astonishing natural beauty, Borneo, the world's third-largest island, is a must-visit
+	  destination for nature lovers and adventure seekers alike, 
+	offering diverse wildlife, stunning landscapes, and opportunities to experience unique cultures. Explore rainforests, incredible wildlife, 
+	and unique ecosystems.<br>
+    Must-See:<br> Mount Kinabalu, Sepilok Orangutan Rehabilitation Centre, and Bako National Park.</p>
+    </div>
+	</div>
+	
+	<div class="body--text-block">
+	<div class="descriptions">
+	<h2>3. Istanbul, Turkey</h2>
+	<p>Why Visit: <br> Istanbul has a very rich history. You can witness the fertile history from the Ottoman and Byzantine periods. You will discover the city that was once Byzantium and called Constantinople and was the crown of three empires. 
+	Places such as Sultan Ahmet Mosque, Dolmabahçe Palace, Hagia Sophia, Spice Bazaar and Süleymaniye Mosque are places to be seen at least once in a life.
+ A city that straddles two continents, Istanbul has a fascinating history shaped by Roman, Byzantine, and Ottoman empires.<br>
+Must-See:<br> Hagia Sophia, Topkapi Palace, Blue Mosque, Basilica Cistern, and the ancient Hippodrome.</p>
+     </div>
+	<img src="./img/intanbul_history.webp">
+	</div>
+	
+	<div class="body--text-block-last">
+	<img src="./img/jerusalem_history.jpeg">
+	<div class="descriptions-last">
+	<h2>4. Jerusalem, Israel</h2>
+	<p>Why Visit:<br> The little country is absolutely jam packed with historical sites that are worth seeing whether you practice Judaism, Christianity, Islam, or no religion at all. 
+Jerusalem alone is full of architecture dating back to the time of (and before) Jesus, all in one small historic quarter of the city. You can:A city sacred to multiple religions and steeped in over 3,000 years of history.<br>
+Must-See: <br> The Western Wall, Church of the Holy Sepulchre, Dome of the Rock, Yad Vashem Holocaust Memorial, and Mount of Olives.</p>
+    </div>
+	</div>
+	</div>
+	
+	</div>
+	<script>
+	
+	const menuBtn= document.querySelector(".menu-btn");
+	  const navigation= document.querySelector(".navigation");
+      const myImg= document.getElementById("menu_img");
+      const themeToggle= document.querySelector(".dark-button");
+      const body= document.body;
+      
+      themeToggle.addEventListener('click', () => {
+      body.classList.toggle('dark-mode');
+      navigation.classList.toggle('dark-mode');
+      header.classList.toggle('dark-mode');
+      });
+      
+      
+	 
+	     menuBtn.addEventListener("click",()=>{
+		 menuBtn.classList.toggle("active");
+		 navigation.classList.toggle("active");
+			  });
+         
+         
+         let isFirstImage= true;
+         
+         menuBtn.addEventListener("click",function(){
+         
+         if (isFirstImage){
+          myImg.src="./img/close_menu.png";
+         } else {
+          myImg.src="./img/menu.png";
+         }
+         
+          isFirstImage = !isFirstImage;
+          });
+	
+		
+		//JS for Slidebtns// 
+	  const btns= document.querySelectorAll(".nav-btn");
+	  const slides= document.querySelectorAll(".video-slide");
+	  const contents=document.querySelectorAll(".content");
+		
+		var slideNav= function(manual){
+			
+			btns.forEach((btn)=>{
+				btn.classList.remove("active");
+			});
+			
+			slides.forEach((slide)=>{
+				slide.classList.remove("active");
+			});
+			
+			contents.forEach((content)=>{
+				content.classList.remove("active");
+			});
+			
+			
+			
+		   btns[manual].classList.add("active");
+			 slides[manual].classList.add("active");
+			contents[manual].classList.add("active");
+		};
+		
+		
+		
+		btns.forEach((btn,i)=>{
+			btn.addEventListener("click",()=>{
+			  slideNav(i);
+			});
+		});
+		
+	</script>
+	</section>
+	</html>

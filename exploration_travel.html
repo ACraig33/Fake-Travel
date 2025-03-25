@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang= "en" dir="1tr">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0">
+	<title> Travel Agency</title>
+	<link rel="stylesheet" href="./CSS/exploration_travel.css">
+    
+	
+</head>
+
+<body class="light--mode">
+	
+	<header>
+      <img class="logo" src="./img/logo.png" alt="">
+	    	<div class="menu-btn"><img id="menu_img" src="./img/menu.png"></div>
+	        <div class="navigation">
+				<div class="navigation-items">
+					<a href="home_travel.html">Home</a>
+					<a href="exploration_travel.html"> Explore </a>
+					 <a class="dark-button"> <button class="dark-mode"> Toggle Dark Mode</button></a>
+					
+			    </div>
+				</div>
+	</header>
+	
+	<section class="home">
+	<div class="top-banner">
+	<img class="top-img" src="./img/explore_banner.jpeg">
+	<h1> Find New Heights</h1>
+	</div>
+
+	<div class="body">
+
+	<div class="left">
+	<div class="text-box">
+	<h2>The Year of You</h2>
+	<p>Ready to Make 2025 Your Best Year of Travel?<br>
+Discover the world's top destinations and unlock a year filled with unforgettable adventures. 
+From the serene temples of Kyoto to the vibrant streets of Lisbon, our curated list of the Best Places to Travel in 2025 will 
+inspire your next getaway. Whether you're chasing thrilling outdoor adventures, rich cultural experiences, or simply seeking breathtaking
+ landscapes, we've got the perfect destinations waiting for you.
+
+Why settle for ordinary when you can explore the extraordinary? Book your dream vacation today and get ready to experience the world like 
+never before! Don’t just travel—explore the world’s most incredible places and make memories that will last a lifetime. Your journey to the
+ ultimate destinations starts now!
+     </p>
+	</div>
+	
+	</div>
+	
+	<div class="right">
+	<div class="img-container1">
+
+	<a href="exploration_nature.html">
+	<img src="./img/iceland.png">
+	</a>
+	
+	
+	<a href="exploration_historical.html">
+	<img src="./img/kyoto.png">
+	
+	</a>
+	</div>
+	
+	<div class="img-container2">
+	<a href="exploration_tourism.html">
+	<img src="./img/Libson.png">
+	</a>
+	<a href="exploration_sightseeing.html">
+	<img src="./img/new_zealand.png">
+	</a>
+	</div>
+	
+	</div>
+	
+	</div>
+	
+	<div class="footer">
+	</div>
+	<script>
+	
+	const menuBtn= document.querySelector(".menu-btn");
+	  const navigation= document.querySelector(".navigation");
+      const myImg= document.getElementById("menu_img");
+      const themeToggle= document.querySelector(".dark-button");
+      const body= document.body;
+      
+      themeToggle.addEventListener('click', () => {
+      body.classList.toggle('dark-mode');
+      navigation.classList.toggle('dark-mode');
+      header.classList.toggle('dark-mode');
+      });
+      
+      
+	 
+	     menuBtn.addEventListener("click",()=>{
+		 menuBtn.classList.toggle("active");
+		 navigation.classList.toggle("active");
+			  });
+         
+         
+         let isFirstImage= true;
+         
+         menuBtn.addEventListener("click",function(){
+         
+         if (isFirstImage){
+          myImg.src="./img/close_menu.png";
+         } else {
+          myImg.src="./img/menu.png";
+         }
+         
+          isFirstImage = !isFirstImage;
+          });
+	
+		
+		//JS for Slidebtns// 
+	  const btns= document.querySelectorAll(".nav-btn");
+	  const slides= document.querySelectorAll(".video-slide");
+	  const contents=document.querySelectorAll(".content");
+		
+		var slideNav= function(manual){
+			
+			btns.forEach((btn)=>{
+				btn.classList.remove("active");
+			});
+			
+			slides.forEach((slide)=>{
+				slide.classList.remove("active");
+			});
+			
+			contents.forEach((content)=>{
+				content.classList.remove("active");
+			});
+			
+			
+			
+		   btns[manual].classList.add("active");
+			 slides[manual].classList.add("active");
+			contents[manual].classList.add("active");
+		};
+		
+		
+		
+		btns.forEach((btn,i)=>{
+			btn.addEventListener("click",()=>{
+			  slideNav(i);
+			});
+		});
+		
+	</script>
+	 
+	
+	</section>
+	
+	</body>
+	</html>
